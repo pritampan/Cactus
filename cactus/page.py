@@ -171,7 +171,7 @@ class Page(PageCompatibilityLayer, ResourceURLHelperMixin):
         if parsing_yaml:
             [raw_yaml, template] = data.split('...', 1)
             try:
-                return yaml.load(raw_yaml), template
+                return yaml.load(raw_yaml, Loader=yaml.FullLoader), template
             except Exception as e:
                 # Safety return
                 return {}, template
